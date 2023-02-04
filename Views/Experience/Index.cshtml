@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">İş Hayatım</h3>
+                </div>
+
+                <a href="Experience/AddExperience" class="btn btn-success">Yeni İş Ekle</a>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="budget">İş Adı</th>
+                                <th scope="col" class="sort" data-sort="completion">Tarih</th>
+                                <th scope="col" class="sort" data-sort="completion">Pozisyon</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="@item.Image">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.Title</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                @if (item.Continued == true)
+                                {
+                                    <td class="budget">
+                                        @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) - Devam Etmekte
+                                    </td>
+                                }
+                                else
+                                {
+
+                            <td class="budget">
+                                @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) -  @(((DateTime)item.DateFinish).ToString("dd-MMM-yyyy"))
+                            </td>
+                                }
+                                <td class="budget">
+                                    @item.Position
+                                </td>
+                                <td class="text-right">
+                                    <a href="/Experience/EditExperience/@item.Id" class="btn btn-info">Güncelle</a> || <a href="/Experience/DeleteExperience/@item.Id" class="btn btn-danger">Sil</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+            </div>
+        </div>
+    </div>
+</div>
+

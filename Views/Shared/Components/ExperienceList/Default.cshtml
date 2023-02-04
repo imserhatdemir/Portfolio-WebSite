@@ -14,7 +14,16 @@
                         <div class="d-flex justify-content-between">
                             <div>
                                 <h3 class="h5 mb-1">@item.Position</h3>
-                                <div class="text-muted text-small">@item.Title <small>(@item.Date)</small></div>
+                                @if (item.Continued == true)
+                                {
+                                    <div class="text-muted text-small">@item.Title <small> @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) - Devam etmekte</small></div>
+                                }
+                                else
+                                {
+                                    <div class="text-muted text-small">@item.Title <small> @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) -  @(((DateTime)item.DateFinish).ToString("dd-MMM-yyyy"))</small></div>
+
+                                }
+
                             </div><img src="@item.Image" width="48" height="48" alt="ui-ux" />
                         </div>
                     </div>

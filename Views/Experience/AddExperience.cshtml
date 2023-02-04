@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">İş Ekle</h4>
+            <p class="card-description">
+                Yeni İş Ekle
+            </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">İş</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="exampleInputUsername2" name="Title" placeholder="İş">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Pozisyon</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="exampleInputUsername2" name="Position" placeholder="Pozisyon">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Görsel Yolu</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="exampleInputUsername2" name="Image" placeholder="Görsel Yolu">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Giriş Tarihi</label>
+                    <div class="col-sm-9">
+                        <input type="date" class="form-control" id="exampleInputUsername2" name="Date" placeholder="Görsel Yolu">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Çıkış Tarihi</label>
+                    <div class="col-sm-9">
+                        <input type="date" class="form-control" id="exampleInputUsername2" name="DateFinish" placeholder="Görsel Yolu">
+                    </div>
+                </div>
+                <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="Continued">
+                        Devam ediyorum
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Textarea</label>
+                    <textarea class="form-control" id="exampleTextarea1" rows="4" name="Description"></textarea>
+                </div>
+                <button class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
