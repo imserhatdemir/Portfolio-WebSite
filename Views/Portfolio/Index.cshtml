@@ -1,0 +1,76 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolios>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">İş Hayatım</h3>
+                </div>
+
+                <a href="/Portfolio/AddPortfolio" class="btn btn-success">Yeni İş Ekle</a>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="budget">Başlık</th>
+                                <th scope="col" class="sort" data-sort="completion">URL</th>
+                                <th scope="col" class="sort" data-sort="completion">Platform</th>
+                                <th scope="col" class="sort" data-sort="completion">Durum</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="@item.Image">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.Title</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    @item.Url
+                                </td>
+                                <td class="budget">
+                                    @item.Platform
+                                </td>
+                                @if (item.Status == true)
+                                {
+                                    <td class="budget">
+                                        <a class="btn btn-success">Aktif</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="budget">
+                                        <a class="btn btn-danger">Pasif</a>
+                                    </td>
+                                }
+
+                                <td class="text-right">
+                                    <a href="/Portfolio/EditPortfolio/@item.Id" class="btn btn-info">Güncelle</a> || <a href="/Portfolio/DeletePortfolio/@item.Id" class="btn btn-danger">Sil</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+            </div>
+        </div>
+    </div>
+</div>
+
