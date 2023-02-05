@@ -1,0 +1,74 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yetenek Ekle</h4>
+            <p class="card-description">
+                Yeni Yetenek Ekle
+            </p>
+            @using (Html.BeginForm("Index", "About", FormMethod.Post, new { @class = "form-sample" }))
+            {
+                @Html.HiddenFor(x => x.Id)
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Başlık</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Title)
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Yaş</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Age)
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Mail</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Mail)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Github</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Github, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Github)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Şehir</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Country)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Telefon</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Phone)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Hakkında</label>
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(x => x.Details, 20, 10, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Details)
+                    </div>
+                </div>
+                <button class="btn btn-primary mr-2">Kaydet</button>
+
+            }
+        </div>
+    </div>
+</div>
+
