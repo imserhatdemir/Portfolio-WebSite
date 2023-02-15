@@ -2,62 +2,48 @@
 @model List<Skill>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="container-fluid mt--6">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <!-- Card header -->
-                <div class="card-header border-0">
-                    <h3 class="mb-0">Yeteneklerim</h3>
-                </div>
-
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Striped Table</h4>
+            <p class="card-description">
                 <a href="Skill/AddSkill" class="btn btn-success">Yeni Yetenek Ekle</a>
-                <!-- Light table -->
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col" class="sort" data-sort="budget">Yetenek</th>
-                                <th scope="col" class="sort" data-sort="completion">Değer</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody class="list">
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <span class="name mb-0 text-sm">@item.Id</span>
-                                            </a>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">@item.Title</span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="completion mr-2">@item.Value%</span>
-                                            <div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="/Skill/EditSkill/@item.Id" class="btn btn-info">Güncelle</a> || <a href="/Skill/DeleteSkill/@item.Id" class="btn btn-danger">Sil</a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Card footer -->
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> Yetenek </th>
+                            <th> Değer </th>
+                            <th> İşlemler </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="py-1">
+                                @item.Id
+                            </td>
+                            <td> @item.Title</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="/Skill/EditSkill/@item.Id" class="btn btn-info">Güncelle</a> || <a href="/Skill/DeleteSkill/@item.Id" class="btn btn-danger">Sil</a>
+                            </td>
+                        </tr>
+                        }
+
+                      
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
