@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Portfolio.ViewComponents.Dashboard
+namespace Portfolio.ViewComponents.Portfolio
 {
-    public class MessageList : ViewComponent
+    public class PortfolioSlide : ViewComponent
     {
-        UserMessageManager message = new UserMessageManager(new EFUserMessageDAL());
+        PortfolioManager featureManager = new PortfolioManager(new EFPortfolioDAL());
         public IViewComponentResult Invoke()
         {
-            var value = message.GetUserMessageWithUserService();
-            return View(value);
+            var values = featureManager.TGetList();
+            return View(values);
         }
     }
 }

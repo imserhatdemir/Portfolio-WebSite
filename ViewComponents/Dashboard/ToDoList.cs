@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Portfolio.ViewComponents.Dashboard
 {
-    public class MessageList : ViewComponent
+    public class ToDoList : ViewComponent
     {
-        UserMessageManager message = new UserMessageManager(new EFUserMessageDAL());
+        ToDoListManager toDoListManager = new ToDoListManager(new EFToDoListDAL());
+
         public IViewComponentResult Invoke()
         {
-            var value = message.GetUserMessageWithUserService();
+            var value = toDoListManager.TGetList();
             return View(value);
         }
     }
